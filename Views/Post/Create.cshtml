@@ -53,7 +53,7 @@
                 @Html.ValidationMessageFor(model => model.University, "", new { @class = "text-danger" })
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 d-flex justify-content-between">
                 <button type="submit" class="btn btn-primary">Add Applicant</button>
                 <button type="button" class="btn btn-secondary"
                         onclick="window.location.href='@Url.Action("Index", "Home")'">

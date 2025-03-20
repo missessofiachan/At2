@@ -2,7 +2,6 @@
 
 using At2.Data;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 #endregion
 
@@ -51,11 +50,8 @@ public class HomeController(ApplicationDbContext context) : Controller
             case "DOB_asc":
                 applicants = applicants.OrderBy(a => a.DOB);
                 break;
-            default:
-                break;
         }
 
         return View(applicants.ToList());
     }
-    }
-    
+}
