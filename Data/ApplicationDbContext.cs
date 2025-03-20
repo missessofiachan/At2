@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace At2.Data;
 
-public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
+public class ApplicationDbContext(DbContextOptions options) : DbContext(options)
 {
     public DbSet<Applicant> Applicants => Set<Applicant>();
 

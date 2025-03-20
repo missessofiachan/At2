@@ -2,7 +2,6 @@
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 #endregion
 
@@ -11,8 +10,6 @@ namespace At2.Models;
 [Table("Applicants", Schema = "hr")]
 public class Applicant
 {
-    public List<SelectListItem> ListApplicant = [];
-
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 

@@ -4,18 +4,19 @@
     ViewBag.Title = "Applicants";
     Layout = "_Layout";
 }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <div class="mt-4">
-    <h2 class="mb-4">Applicants (Highest GPA First)</h2>
-
+    <h2 class="mb-4">Applicants</h2>
     <p>
         @Html.ActionLink("Add Applicant", "Create", "Post", null, new { @class = "btn btn-primary" })
     </p>
 
-    <table class="table table-striped table-hover">
+    <table id="applicantsTable" class="table table-striped table-hover">
         <thead class="table-dark">
         <tr>
             <th>Name</th>
+            <th>DOB</th>
             <th>GPA</th>
             <th>Qualification</th>
             <th>University</th>
@@ -27,6 +28,7 @@
         {
             <tr>
                 <td>@applicant.Name</td>
+                <td>@applicant.DOB.ToShortDateString()</td>
                 <td>@applicant.GPA</td>
                 <td>@applicant.Qualification</td>
                 <td>@applicant.University</td>
@@ -40,17 +42,68 @@
         </tbody>
     </table>
     <div>
-        <form asp-action="Index" method="get" class="form-inline">
+        <form id="sortForm" asp-action="Index" method="get" class="form-inline">
             <div class="form-group">
-                <label class="mr-2">Sort by GPA:</label>
-                <select name="sortOrder" class="form-control" onchange="this.form.submit()">
-                    <option value="desc" @(ViewData["CurrentSort"]?.ToString() == "desc" ? "selected" : "")>Highest
-                        First
+                <label class="mr-2">Sort by :</label>
+                <select id="sortOrderSelect" name="sortOrder" class="form-control" onchange="this.form.submit()">
+                    <option value="gpa_desc" 
+                            @(ViewData["CurrentSort"]?.ToString() == "gpa_desc" ? "selected" : "")>
+                        Highest GPA First
                     </option>
-                    <option value="asc" @(ViewData["CurrentSort"]?.ToString() == "asc" ? "selected" : "")>Lowest First
+                    <option value="gpa_asc"
+                            @(ViewData["CurrentSort"]?.ToString() == "gpa_asc" ? "selected" : "")>
+                        Lowest GPA First
+                    </option>
+                    <option value="name_desc"
+                            @(ViewData["CurrentSort"]?.ToString() == "name_desc" ? "selected" : "")>
+                        Name Z-A
+                    </option>
+                    <option value="name_asc" 
+                            @(ViewData["CurrentSort"]?.ToString() == "name_asc" ? "selected" : "")>
+                        Name A-Z
+                    </option>
+                    <option value="qualification_desc"
+                            @(ViewData["CurrentSort"]?.ToString() == "qualification_desc" ? "selected" : "")>
+                        Qualification Z-A
+                    </option>
+                    <option value="qualification_asc"
+                            @(ViewData["CurrentSort"]?.ToString() == "qualification_asc" ? "selected" : "")>
+                        Qualification A-Z
+                    </option>
+                    <option value="university_desc"
+                            @(ViewData["CurrentSort"]?.ToString() == "university_desc" ? "selected" : "")>
+                        University Z-A
+                    </option>
+                    <option value="university_asc"
+                            @(ViewData["CurrentSort"]?.ToString() == "university_asc" ? "selected" : "")>
+                        University A-Z
+                    </option>
+                    <option value="DOB_desc"
+                            @(ViewData["CurrentSort"]?.ToString() == "DOB_desc" ? "selected" : "")>
+                        DOB Descending
+                    </option>
+                    <option value="DOB_asc" 
+                            @(ViewData["CurrentSort"]?.ToString() == "DOB_asc" ? "selected" : "")>
+                        DOB Ascending
                     </option>
                 </select>
             </div>
         </form>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#sortOrderSelect").change(function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: '@Url.Action("Index", "Home")',
+                data: $("#sortForm").serialize(),
+                type: "GET",
+                success(result) {
+                    $("#applicantsTable").html(result);
+                }
+            });
+        });
+    });
+</script>
