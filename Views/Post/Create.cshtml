@@ -1,0 +1,66 @@
+﻿@model At2.Models.Applicant
+
+@{
+    ViewBag.Title = "Add Applicant";
+    Layout = "_Layout";
+}
+
+<div class="container mt-4">
+    <fieldset class="border p-4 rounded">
+        <legend class="w-auto px-2">Add Applicant</legend>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="mb-3">
+                @Html.LabelFor(model => model.Name, new { @class = "form-label" })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(model => model.DOB, new { @class = "form-label" })
+                @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(model => model.Qualification, new { @class = "form-label" })
+                @Html.DropDownListFor(
+                    model => model.Qualification,
+                    new SelectList(ViewBag.Qualifications as List<string>),
+                    "Select a Qualification",
+                    new { @class = "form-select", id = "qualificationId" }
+                )
+                @Html.ValidationMessageFor(model => model.Qualification, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(model => model.GPA, new { @class = "form-label" })
+                @Html.EditorFor(model => model.GPA, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GPA, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(model => model.University, new { @class = "form-label" })
+                @Html.DropDownListFor(
+                    model => model.University,
+                    new SelectList(ViewBag.Universities as List<string>),
+                    "Select a University",
+                    new { @class = "form-select", id = "universityId" }
+                )
+                @Html.ValidationMessageFor(model => model.University, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Add Applicant</button>
+                <button type="button" class="btn btn-secondary"
+                        onclick="window.location.href='@Url.Action("Index", "Home")'">
+                    Back to List
+                </button>
+            </div>
+        }
+    </fieldset>
+</div>
+

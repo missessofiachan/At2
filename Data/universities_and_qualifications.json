@@ -1,0 +1,16 @@
+﻿{
+  "Universities": [
+    "Massachusetts Institute of Technology",
+    "Harvard University",
+    "Stanford University",
+    "University of Cambridge",
+    "University of Oxford"
+  ],
+  "Qualifications": [
+    "Master of Data Science",
+    "Master of Artificial Intelligence",
+    "Master of Information Technology",
+    "Master of Science (Statistics)"
+  ]
+}
+

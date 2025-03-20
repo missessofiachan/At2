@@ -1,0 +1,154 @@
+﻿/* ============================
+   Dark Mode Styles
+   ============================ */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff; /* Light text for better contrast */
+}
+
+/* Headings & Paragraphs */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p {
+    color: #ffffff;
+}
+
+/* Navbar (Dark Mode) */
+body.dark-mode .navbar,
+body.dark-mode .navbar-light {
+    background-color: #2d1650 !important; /* Dark purple background */
+    border-bottom: 1px solid #3a1b69;
+}
+
+/* Navbar Brand */
+body.dark-mode .navbar-brand {
+    color: #ffffff !important;
+}
+
+body.dark-mode .navbar-brand:hover {
+    color: #e0e0e0 !important;
+}
+
+/* Navbar Links */
+body.dark-mode .navbar-light .navbar-nav .nav-link {
+    color: #ffffff !important;
+}
+
+body.dark-mode .navbar-light .navbar-nav .nav-link:hover {
+    color: #d4b3ff !important;
+}
+
+/* Buttons (Dark Mode) */
+body.dark-mode .btn-primary,
+body.dark-mode .btn-warning,
+body.dark-mode .btn-danger {
+    background-color: rebeccapurple;
+    color: white;
+    border-color: rebeccapurple;
+}
+
+/* Links (Dark Mode) */
+body.dark-mode a {
+    color: rebeccapurple;
+}
+
+/* Form Elements (Dark Mode) */
+body.dark-mode .form-check-label {
+    color: #ffffff;
+}
+
+body.dark-mode .form-check-input {
+    background-color: #6e42c1;
+    border-color: #4b2c83;
+}
+
+body.dark-mode .form-check-input:checked {
+    background-color: #8f5bdc;
+    border-color: #6e42c1;
+}
+
+
+/* ============================
+   Light Mode Styles (Purple Theme)
+   ============================ */
+body {
+    background-color: floralwhite; /* Soft lavender background */
+    color: rebeccapurple; /* Purple text for contrast */
+}
+
+/* Headings & Paragraphs */
+body h1,
+body h2,
+body h3,
+body p {
+    color: rebeccapurple;
+}
+
+/* Navbar (Light Mode) */
+body .navbar,
+body .navbar-light {
+    background-color: #ffffff !important; /* White navbar for clean look */
+    border-bottom: 1px solid #ddd;
+}
+
+/* Navbar Brand */
+body .navbar-brand {
+    color: rebeccapurple !important;
+}
+
+body .navbar-brand:hover {
+    color: #d4b3ff !important;
+}
+
+/* Navbar Links */
+body.light-mode .navbar-light .navbar-nav .nav-link {
+    color: rebeccapurple !important;
+}
+
+body.light-mode .navbar-light .navbar-nav .nav-link:hover {
+    color: #d4b3ff !important;
+}
+
+/* Buttons (Light Mode) */
+body .btn-primary,
+body .btn-warning,
+body .btn-danger {
+    background-color: rebeccapurple;
+    color: white;
+    border-color: rebeccapurple;
+
+    &:hover {
+        background-color: #d4b3ff;
+        border-color: #d4b3ff;
+    }
+
+    &:active {
+        background-color: #d4b3ff;
+        border-color: #d4b3ff;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 0.2rem rgba(212, 179, 255, 0.5);
+    }
+}
+
+/* Links (Light Mode) */
+body a {
+    color: rebeccapurple;
+}
+
+/* Form Elements (Light Mode) */
+body .form-check-label {
+    color: rebeccapurple;
+}
+
+body .form-check-input {
+    background-color: #e0e0e0;
+    border-color: #ccc;
+}
+
+body.form-check-input:checked {
+    background-color: rebeccapurple;
+    border-color: rebeccapurple;
+}

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<At2.Models.Applicant>
+
+@{
+    ViewBag.Title = "Applicants";
+    Layout = "_Layout";
+}
+
+<div class="mt-4">
+    <h2 class="mb-4">Applicants (Highest GPA First)</h2>
+
+    <p>
+        @Html.ActionLink("Add Applicant", "Create", "Post", null, new { @class = "btn btn-primary" })
+    </p>
+
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+        <tr>
+            <th>Name</th>
+            <th>GPA</th>
+            <th>Qualification</th>
+            <th>University</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var applicant in Model)
+        {
+            <tr>
+                <td>@applicant.Name</td>
+                <td>@applicant.GPA</td>
+                <td>@applicant.Qualification</td>
+                <td>@applicant.University</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "post", new { id = applicant.ApplicantId }, new { @class = "btn btn-sm btn-warning" })
+                    @Html.Raw(" ")
+                    @Html.ActionLink("Delete", "Delete", "post", new { id = applicant.ApplicantId }, new { @class = "btn btn-sm btn-danger" })
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <div>
+        <form asp-action="Index" method="get" class="form-inline">
+            <div class="form-group">
+                <label class="mr-2">Sort by GPA:</label>
+                <select name="sortOrder" class="form-control" onchange="this.form.submit()">
+                    <option value="desc" @(ViewData["CurrentSort"]?.ToString() == "desc" ? "selected" : "")>Highest
+                        First
+                    </option>
+                    <option value="asc" @(ViewData["CurrentSort"]?.ToString() == "asc" ? "selected" : "")>Lowest First
+                    </option>
+                </select>
+            </div>
+        </form>
+    </div>
+</div>

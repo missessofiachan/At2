@@ -1,0 +1,69 @@
+﻿@model At2.Models.Applicant
+
+@{
+    ViewData["Title"] = "Delete Applicant";
+    Layout = "_Layout";
+}
+
+<div class="container mt-4">
+    <fieldset class="border p-4 rounded">
+        <legend class="w-auto px-2">Delete Applicant</legend>
+        <div class="alert alert-danger">
+            <h4>Are you sure you want to delete this applicant?</h4>
+        </div>
+
+        @using (Html.BeginForm("Delete", "Post", FormMethod.Post, new { id = "deleteForm" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.ApplicantId)
+
+            <div class="mb-3 row">
+                @Html.LabelFor(model => model.Name, new { @class = "col-md-2 col-form-label" })
+                <div class="col-md-10">
+                    <p class="form-control-plaintext">@Model.Name</p>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                @Html.LabelFor(model => model.DOB, new { @class = "col-md-2 col-form-label" })
+                <div class="col-md-10">
+                    <p class="form-control-plaintext">@Model.DOB.ToShortDateString()</p>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                @Html.LabelFor(model => model.Qualification, new { @class = "col-md-2 col-form-label" })
+                <div class="col-md-10">
+                    <p class="form-control-plaintext">@Model.Qualification</p>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                @Html.LabelFor(model => model.GPA, new { @class = "col-md-2 col-form-label" })
+                <div class="col-md-10">
+                    <p class="form-control-plaintext">@Model.GPA</p>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                @Html.LabelFor(model => model.University, new { @class = "col-md-2 col-form-label" })
+                <div class="col-md-10">
+                    <p class="form-control-plaintext">@Model.University</p>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-danger" id="deleteButton">Delete</button>
+                <button type="button" class="btn btn-secondary"
+                        onclick="window.location.href='@Url.Action("Index", "Home")'">
+                    Back to List
+                </button>
+            </div>
+        }
+    </fieldset>
+</div>
+
+<script>
+    // Confirmation dialog before deletion
+ 
+</script>
