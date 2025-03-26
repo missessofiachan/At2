@@ -1,6 +1,9 @@
-﻿using System.Linq;
+﻿#region
+
 using At2.Data;
 using Microsoft.AspNetCore.Mvc;
+
+#endregion
 
 namespace At2.Controllers;
 
@@ -16,9 +19,7 @@ public class HomeController(ApplicationDbContext context) : Controller
         var applicants = _context.Applicants.AsQueryable();
 
         if (!string.IsNullOrEmpty(searchQuery))
-        {
             applicants = applicants.Where(a => a.Name.Contains(searchQuery) || a.University.Contains(searchQuery));
-        }
 
         applicants = sortOrder switch
         {
