@@ -17,7 +17,6 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Applicants/Error");
-    // The default HSTS value is 30 days.
     app.UseHsts();
 }
 

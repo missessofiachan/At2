@@ -31,4 +31,8 @@
         <PackageReference Include="MSTest.TestFramework" Version="3.8.3"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    </ItemGroup>
+
 </Project>
