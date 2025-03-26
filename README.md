@@ -13,9 +13,6 @@ A web-based application built with ASP\.NET MVC for managing applicants. The app
 - `At2`  
   Contains the ASP\.NET MVC application including controllers, models, views, and other assets.
 
-- `TestProject1`  
-  Contains unit tests built using MSTest and Entity Framework Core.
-
 ## Running the Application
 
 1\. Open the solution in JetBrains Rider\.  
@@ -24,11 +21,6 @@ A web-based application built with ASP\.NET MVC for managing applicants. The app
 4\. Run the ASP\.NET project (`At2`)\.  
 5\. The application will start and can be accessed via a web browser at the configured URL\(typically [https://localhost:5001](https://localhost:5001)\).
 
-## Running Tests
-
-1\. Open the solution in JetBrains Rider\.  
-2\. Build the solution\.  
-3\. Run tests from the Test Explorer in Rider or via the command line using:
 
 ```bash
 dotnet test
