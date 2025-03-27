@@ -20,6 +20,3 @@ A web-based application built with ASP\.NET MVC for managing applicants. The app
 4\. Run the ASP\.NET project (`At2`)\.  
 5\. The application will start and can be accessed via a web browser at the configured URL\(typically [https://localhost:5001](https://localhost:5001)\).
 
-
-```bash
-dotnet test
