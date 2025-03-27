@@ -5,7 +5,6 @@ A web-based application built with ASP\.NET MVC for managing applicants. The app
 ## Prerequisites
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-- [JetBrains Rider 2024\.3\.6](https://www.jetbrains.com/rider/)
 - An Internet connection for loading external Bootstrap and Google Fonts assets
 
 ## Project Structure
